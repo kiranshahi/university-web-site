@@ -164,7 +164,7 @@ namespace ContosoUniversity.Data
                     s.Student.ID == e.StudentID &&
                     s.Course.CourseID == e.CourseID
                 ).SingleOrDefault();
-                if(enrollmentInDataBase == null)
+                if (enrollmentInDataBase == null)
                 {
                     context.Enrollments.Add(e);
                 }
