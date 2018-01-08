@@ -134,7 +134,7 @@ namespace ContosoUniversity.Controllers
             var instructorToUpdate = await _context.Instructors
             .Include(i => i.OfficeAssignment)
             .Include(i => i.CourseAssignments)
-            .ThenInclude(i => i.CourseID)
+            .ThenInclude(i => i.Course)
             .SingleOrDefaultAsync(s => s.ID == id);
 
             if (await TryUpdateModelAsync<Instructor>(
