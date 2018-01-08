@@ -23,7 +23,7 @@ namespace ContosoUniversity.Controllers
         // GET: Instructors
         public async Task<IActionResult> Index(int? id, int? courseID)
         {
-            var viewModel = new InstructorIdexData();
+            var viewModel = new InstructorIndexData();
             viewModel.Instructors = await _context.Instructors
                 .Include(i => i.OfficeAssignment)
                 .Include(i => i.CourseAssignments)

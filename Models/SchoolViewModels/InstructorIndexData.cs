@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ContosoUniversity.Models.SchoolViewModels
 {
-    public class InstructorIdexData
+    public class InstructorIndexData
     {
         public IEnumerable<Instructor> Instructors { get; set; }
         public IEnumerable<Course> Courses { get; set; }
