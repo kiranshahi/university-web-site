@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<ContosoUniversity.Models.Department>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Departments";
 }
 
-<h2>Index</h2>
+<h2>Departments</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -25,7 +25,7 @@
                     @Html.DisplayNameFor(model => model.RowVersion)
                 </th>
             <th>
-                @Html.DisplayNameFor(model => model.Administrator)
+                @Html.DisplayNameFor(model => model.Administrator.FullName)
             </th>
             <th></th>
         </tr>
