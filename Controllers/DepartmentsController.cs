@@ -34,9 +34,13 @@ namespace ContosoUniversity.Controllers
                 return NotFound();
             }
 
+            string query = "SELECT * FROM Department WHERE DepartmentID = {0}";
+
             var department = await _context.Departments
+                .FromSql(query, id)
                 .Include(d => d.Administrator)
-                .SingleOrDefaultAsync(m => m.DepartmentID == id);
+                .AsNoTracking()
+                .SingleOrDefaultAsync();
             if (department == null)
             {
                 return NotFound();
@@ -216,9 +220,10 @@ namespace ContosoUniversity.Controllers
                     await _context.SaveChangesAsync();
                 }
                 return RedirectToAction(nameof(Index));
-            } catch (DbUpdateConcurrencyException)
+            }
+            catch (DbUpdateConcurrencyException)
             {
-                return RedirectToAction(nameof(Delete), new { concurrencyError = true, id = department.DepartmentID});
+                return RedirectToAction(nameof(Delete), new { concurrencyError = true, id = department.DepartmentID });
             }
         }
 
